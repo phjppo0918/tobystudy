@@ -1,6 +1,6 @@
-package com.example.tobystudy.springbook.user.dao;
+package springbook.user.dao;
 
-import com.example.tobystudy.springbook.user.domain.User;
+import springbook.user.domain.User;
 
 import java.sql.*;
 

@@ -1,4 +1,4 @@
-package com.example.tobystudy.springbook.user.domain;
+package springbook.user.domain;
 
 public class User {
     String id;
