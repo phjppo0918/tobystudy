@@ -1,7 +1,7 @@
 package springbook.user.dao;
 
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import springbook.user.domain.User;
 
 import java.sql.SQLException;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -28,7 +29,7 @@ public class UserDaoTest {
 
     @Before
     public void setUp() {
-        this.dao = this.context.getBean("userDao", UserDao.class);
+        this.dao = this.context.getBean(UserDao.class);
 
         user1 = new User("123","1234","132");
         user2 = new User("1243","12344","13342");
@@ -68,7 +69,7 @@ public class UserDaoTest {
         assertThat(dao.getCount(), is(3));
     }
 
-    @Test
+    @Test(expected = SQLException.class)
     public void userNotFound() throws SQLException, ClassNotFoundException {
         dao.deleteAll();
         assertThat(dao.getCount(), is(0));
