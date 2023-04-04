@@ -46,7 +46,7 @@ public class UserDaoJdbc implements UserDao {
     }
 
     public int getCount() {
-        return this.jdbcTemplate.queryForInt("select count(*) from users");
+        return jdbcTemplate.queryForObject("select count(*) from users", Integer.class);
     }
 
     public List<User> getAll() {
